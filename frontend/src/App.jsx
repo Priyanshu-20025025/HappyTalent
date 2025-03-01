@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./App.css";
 import React from "react";
-import { Outlet } from "react-router";
+import { Outlet } from "react-router-dom";
 import Header from "./pages/Header";
 import Footer from "./pages/Footer";
 import Hero from "./pages/Hero";
@@ -9,7 +9,7 @@ import AOS from 'aos'; // Import AOS library
 import 'aos/dist/aos.css'; // Import AOS CSS
 
 function App() {
-  const [count, setCount] = useState(0);
+ 
 
   useEffect(() => {
     AOS.init({
@@ -26,7 +26,6 @@ function App() {
      <div className="h-full w-full">
      <Header />
       <Outlet />
-      <Hero/>
       <Footer />
      </div>
     </>

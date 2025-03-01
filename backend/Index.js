@@ -1,45 +1,32 @@
-// console.log("lsdjf;l")
-import express from "express"
-import cors from 'cors'; // Import cors
-import bodyParser from 'body-parser'; // Import body-parser
-import users from "../backend/MOCK_DATA.json" assert { type: "json" };
+import express from "express";
+import cors from "cors";
+import bodyParser from "body-parser";
+import dotenv from "dotenv";
+import connectDB from "./db/db.js";
+import router from "./routes/index.js";
+import cookieParser from "cookie-parser";
 
+dotenv.config();
 const app = express();
 const PORT = 8080;
 
-// Enable CORS for all origins (for development - be more specific in production)
-app.use(cors());
-
-// Middleware to parse JSON request bodies
+// ✅ Secure CORS Configuration
+app.use(
+  cors({
+    origin: "http://localhost:5173", // ✅ React frontend ka URL (No '*')
+    credentials: true, // ✅ Allow cookies/tokens in requests
+  })
+);
+app.use(cookieParser()); // ✅ Required to read cookies
+// Middleware
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true })); // ✅ Handle form data
+
+connectDB();
+app.use("/api", router);
 
 
-app.get("/users",(req,res)=>{
-  return res.json(users)
-})
-
-app.post("/api/contact",(req,res)=>{ // Corrected route path to start with /
-  const formData = req.body; // Get form data from request body
-  console.log("Received Form Data:", formData); // Log the form data
-
-  return (
-    //console.log("req",req), // No need to log req again, formData is more relevant
-    res.status(200).send({ // Send status 200 for success
-      data: "success", // Corrected "succus" to "success"
-      message: "form submitting successfully" // Corrected message
-    })
-  )
-})
-
-app.get("/",(req,res)=>{
-  return res.send(`
-    <ul>
-    <li>1</li>
-     <li>2</li>
-     </ul>
-    `)
-})
-
-app.listen(PORT,()=>{
-  console.log("Server is listening Port On",PORT)
-})
+// Start Server
+app.listen(PORT, () => {
+  console.log("Server is listening on Port", PORT);
+});
