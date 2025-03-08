@@ -1,12 +1,13 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API } from "../helper";
 
 const useLogout = () => {
   const navigate = useNavigate();
 
   const logout = async () => {
     try {
-      await axios.post("http://localhost:8080/api/admin/logout", {}, { withCredentials: true });
+      await axios.post(API.logoutAdmin.url, {}, { withCredentials: true });
 
       navigate("/"); // ✅ Redirect to login page
     } catch (error) {

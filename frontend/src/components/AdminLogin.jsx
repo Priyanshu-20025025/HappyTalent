@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API } from "../helper";
 
 const AdminLogin = () => {
   const emailRef = useRef(null);
@@ -16,7 +17,7 @@ const AdminLogin = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:8080/api/admin/login",
+        API.loginAdmin.url,
         { email: emailRef.current.value, password: passwordRef.current.value },
         { withCredentials: true }
       );

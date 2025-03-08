@@ -13,7 +13,7 @@ const PORT = 8080;
 // ✅ Secure CORS Configuration
 app.use(
   cors({
-    origin: "http://localhost:5173", // ✅ React frontend ka URL (No '*')
+    origin: process.env.DOMAIN_URL, // ✅ React frontend ka URL (No '*')
     credentials: true, // ✅ Allow cookies/tokens in requests
   })
 );

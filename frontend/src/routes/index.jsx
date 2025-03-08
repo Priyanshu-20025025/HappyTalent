@@ -5,7 +5,7 @@ import Hero from "../pages/Hero";
 import AdminLogin from "../components/AdminLogin";
 import ProtectedRoute from "./ProtectedRoute";
 // import AdminDashboard from "../pages/AdminDashboard";
-import ContactQueries from "../components/admin/contactQueries";
+import ContactQueries from "../components/admin/ContactQueries";
 import AddUserForm from "../components/admin/AddUserForm";
 // import AdminLayout from "../pages/AdminLayout";
 import AdminLayout from "../components/admin/AdminLayout"

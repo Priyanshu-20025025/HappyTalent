@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom"
+import { API } from "../../helper";
 const AddUserForm = () => {
   const nameRef = useRef(null);
   const fatherNameRef = useRef(null);
@@ -39,7 +40,7 @@ const AddUserForm = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:8080/api/user/add",
+       API.addUser.url,
         formData,
         {  withCredentials: true }
       );

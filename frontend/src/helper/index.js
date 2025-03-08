@@ -1,5 +1,5 @@
-const DomainName = "https://13.201.243.29:8080";
-const localDomainName = "http://localhost:8080";
+const DomainName = import.meta.env.VITE_REACT_APP_BACKEND_BASEURL;
+const localDomainName = import.meta.env.VITE_REACT_APP_BACKEND_LOCAL_BASEURL;
 
 // Determine if the current environment is local
 const isLocal = window.location.hostname === "localhost";
@@ -30,6 +30,26 @@ export const API = {
   },
   loginUser: {
     url: `${currentDomain}/api/user/login`,
+    method: `POST`,
+  },
+  // admin
+
+  loginAdmin: {
+    url: `${currentDomain}/api/admin/login`,
+    method: `POST`,
+  },
+  
+  logoutAdmin: {
+    url: `${currentDomain}/api/admin/logout`,
+    method: `POST`,
+  },
+  
+  userAuthCheck: {
+    url: `${currentDomain}/api/user/auth-check`,
+    method: `POST`,
+  },
+  adminAuthCheck: {
+    url: `${currentDomain}/api/admin/auth-check`,
     method: `POST`,
   },
 };
