@@ -10,23 +10,27 @@ dotenv.config();
 const app = express();
 const PORT = 8080;
 
-// ✅ Secure CORS Configuration
+// ✅ Secure CORS Configuration with multiple origins
+const allowedOrigins = [
+  process.env.DOMAIN_URL, // Your primary frontend URL (e.g., from .env)
+  "https://happy-talent-frontend.vercel.app", // Example staging frontend
+  "http://localhost:3000",       // Example local development frontend
+  // Add more origins as needed
+];
+
 app.use(
   cors({
-    origin: process.env.DOMAIN_URL, // ✅ React frontend ka URL (No '*')
-    credentials: true, // ✅ Allow cookies/tokens in requests
+    origin: allowedOrigins, // ✅ Array of allowed origins
+    credentials: true,
   })
 );
-app.use(cookieParser()); // ✅ Required to read cookies
-// Middleware
+app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(express.urlencoded({ extended: true })); // ✅ Handle form data
+app.use(express.urlencoded({ extended: true }));
 
 connectDB();
 app.use("/api", router);
 
-
-// Start Server
 app.listen(PORT, () => {
   console.log("Server is listening on Port", PORT);
 });
