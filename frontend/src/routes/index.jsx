@@ -11,7 +11,7 @@ import AddUserForm from "../components/admin/AddUserForm";
 import AdminLayout from "../components/admin/AdminLayout"
 import UserLayout from "../pages/userLayout";
 import UserList from "../components/admin/UserList";
-import UserLogin from "../components/user/userLogin";
+import UserLogin from "../components/user/UserLogin";
 import UserProfile from "../components/user/UserProfile";
 
 // const router = createBrowserRouter([
