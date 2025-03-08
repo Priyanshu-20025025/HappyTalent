@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import axios from "axios";
-
-const AddUserForm = ({ onUserAdded }) => {
+import {useNavigate} from "react-router-dom"
+const AddUserForm = () => {
   const nameRef = useRef(null);
   const fatherNameRef = useRef(null);
   const emailRef = useRef(null);
@@ -17,7 +17,7 @@ const AddUserForm = ({ onUserAdded }) => {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -45,13 +45,16 @@ const AddUserForm = ({ onUserAdded }) => {
       );
 
       if (data.success) {
-        onUserAdded();
+        // onUserAdded();
+        alert("user added successfully")
+        navigate("/admin")
+        
       } else {
         setError(data.message);
       }
     } catch (err) {
-      setError("Error adding user!");
-      console.log("err",err)
+      setError(err.response.data.message);
+      console.log("err",)
     }
 
     setLoading(false);

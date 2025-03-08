@@ -2,7 +2,6 @@ import adminModal from "../modals/adminModal.js";
 import bcrypt from "bcrypt";
 const adminRegisterController = async (req, res) => {
   const { email, password } = req.body;
-  console.log("req", email, password);
   if (!email || !password) {
     return res
       .status(400)
@@ -27,7 +26,6 @@ const adminRegisterController = async (req, res) => {
     });
 
     const savedAdmin = await newAdmin.save();
-    console.log("Admin user registered:", savedAdmin);
 
     return res
       .status(201)

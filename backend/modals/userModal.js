@@ -3,17 +3,19 @@ import mongoose from "mongoose";
 const userSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
-    fatherName: { type: String, required: true },
+    fatherName: { type: String  },
     email: { type: String, required: true, unique: true },
-    mobile: { type: String, required: true },
-    designation: { type: String, required: true },
-    dob: { type: Date, required: true },
-    aadhar: { type: String, required: true, unique: true },
-    address: { type: String, required: true },
-    city: { type: String, required: true },
-    occupation: { type: String, required: true },
+    mobile: { type: String },
+    designation: { type: String},
+    dob: { type: Date},
+    aadhar: { type: String ,unique: true,
+      sparse: true},
+    address: { type: String },
+    city: { type: String },
+    occupation: { type: String},
     status: { type: String, enum: ["Active", "Inactive"], default: "Inactive" },
     profilePicture: { type: String }, // Store image URL or file path
+    password: { type: String },
   },
   { timestamps: true }
 );

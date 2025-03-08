@@ -9,12 +9,15 @@ import ShareAppSection from '../components/ShareApp'
 import GallerySection from '../components/GallerySection'
 import ContactForm from '../components/ContactForm'
 import Landing from './Landing'
+import MembershipSignupSection from '../components/MembershipSignupSection'
+import QuickLinksSection from '../components/QuickLinksSection'
 
 const Hero = () => {
   return (
     <>
     <Landing/>
     {/* <AdminPanel/> */}
+   <QuickLinksSection/>
     <GallerySection/>
      <CoursesSection />
      <AboutUsSection />

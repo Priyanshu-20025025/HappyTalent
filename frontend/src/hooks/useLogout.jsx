@@ -8,7 +8,7 @@ const useLogout = () => {
     try {
       await axios.post("http://localhost:8080/api/admin/logout", {}, { withCredentials: true });
 
-      navigate("/admin-login"); // ✅ Redirect to login page
+      navigate("/"); // ✅ Redirect to login page
     } catch (error) {
       console.error("Logout failed", error);
     }

@@ -1,8 +1,8 @@
 import { Link, Outlet, useNavigate } from "react-router";
-import useLogout from "../hooks/useLogout";
-import ContactQueries from "../components/admin/contactQueries";
+import useLogout from "../../hooks/useLogout";
+import ContactQueries from "./contactQueries";
 import { useState } from "react";
-import AddUserForm from "../components/admin/AddUserForm";
+import AddUserForm from "./AddUserForm";
 
 const AdminDashboard = () => {
   const logout = useLogout(); // ✅ Import optimized logout function
@@ -16,8 +16,8 @@ const navigate = useNavigate();
       </div>
       {/* <AddUserForm/> */}
       <Link to={"/admin/queries"} className="z-50 p-2 md:text-md text-sm md:p-3 rounded-2xl bg-amber-500 hover:bg-amber-600 ">Contact Queries</Link> {/* ✅ Logout Button */}
-      <Link to={"/admin/add-user"} className="z-50 p-2 md:text-md text-sm md:p-3 rounded-2xl bg-amber-500 hover:bg-amber-600 ">add-user</Link> {/* ✅ Logout Button */}
-
+      <Link to={"/admin/add-user"} className="z-50 p-2 md:text-md text-sm md:p-3 rounded-2xl bg-amber-500 hover:bg-amber-600 ">add-user</Link> 
+      <Link to={"/admin/user"} className="z-50 p-2 md:text-md text-sm md:p-3 rounded-2xl bg-amber-500 hover:bg-amber-600 ">see-users</Link> 
       {/* <ContactQueries/> */}
     </div>
   );

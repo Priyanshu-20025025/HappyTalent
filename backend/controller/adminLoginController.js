@@ -8,16 +8,15 @@ dotenv.config();
  const AdminLoginController = async (req, res) => {
   try {
     const { email, password } = req.body;
-    console.log(";dlskjf;l")
+  
     const existedUser = await adminModal.findOne({ email });
 
     if (!existedUser) return res.status(404).json({ message: "User not found!" });
-console.log("s;ldfj")
+
     const isMatch = await bcrypt.compare(password, existedUser.password);
     if (!isMatch) return res.status(400).json({ message: "Incorrect Password" });
 
     const token = jwt.sign({ id: existedUser._id, role: "ADMIN" }, process.env.JWT_SECRET, { expiresIn: "1d" });
-console.log("token",token)
     res.cookie("adminToken", token, {
       httpOnly: true, // ❌ JavaScript cannot access this cookie
       secure: true, // ✅ Only works on HTTPS

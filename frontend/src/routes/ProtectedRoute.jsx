@@ -2,18 +2,17 @@ import { Navigate, Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const ProtectedRoute = () => {
+const ProtectedRoute = ({role}) => {
   const [isAuth, setIsAuth] = useState(null);
-
   useEffect(() => {
     const checkAuth = async () => {
-      console.log("in proctected routes")
       try {
-        const res = await axios.get("http://localhost:8080/api/admin/auth-check", {
+        const res = await axios.get(role === "user" ? "http://localhost:8080/api/user/auth-check":"http://localhost:8080/api/admin/auth-check", {
           withCredentials: true, // ✅ Secure cookie access
         });
-        console.log("res",res)
+        if(res.data.success){
         setIsAuth(res.data.success);
+        }
       } catch (error) {
         setIsAuth(false);
       }
@@ -22,7 +21,7 @@ const ProtectedRoute = () => {
   }, []);
 
   if (isAuth === null) return <div>Loading...</div>;
-  return isAuth ? <Outlet /> : <Navigate to="/admin-login" replace />;
+  return isAuth ? <Outlet /> : <Navigate to={role === "user" ?`/login`:`/admin-login`} replace />;
 };
 
 export default ProtectedRoute;
