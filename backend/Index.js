@@ -8,29 +8,46 @@ import cookieParser from "cookie-parser";
 
 dotenv.config();
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
-// ✅ Secure CORS Configuration with multiple origins
+// ✅ Secure CORS Configuration
 const allowedOrigins = [
-  process.env.DOMAIN_URL, // Your primary frontend URL (e.g., from .env)
-  "https://happy-talent-frontend.vercel.app", // Example staging frontend
-  "http://localhost:3000",       // Example local development frontend
-  // Add more origins as needed
+  process.env.DOMAIN_URL,  // Your primary frontend URL from .env
+  "https://happy-talent-foundation.vercel.app", // ✅ Added
+  "https://happy-talent-frontend.vercel.app",   // Staging frontend
+  "http://localhost:3000",  // Local development
 ];
 
 app.use(
   cors({
-    origin: allowedOrigins, // ✅ Array of allowed origins
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 
+// ✅ Database Connection
 connectDB();
+
+// ✅ Routes
 app.use("/api", router);
 
+app.get("/", (req, res) => {
+  res.send("API is running...");
+});
+
+// ✅ Server Start
 app.listen(PORT, () => {
-  console.log("Server is listening on Port", PORT);
+  console.log(`Server is running on Port ${PORT}`);
 });
