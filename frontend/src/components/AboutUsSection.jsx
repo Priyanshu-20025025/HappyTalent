@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const AboutUsSection = () => {
   return (
@@ -20,6 +21,7 @@ const AboutUsSection = () => {
             className="rounded-lg shadow-lg"
           />
         </div>
+        <Link to="/about-us" className="bg-orange-500 hover:bg-orange-600 text-white py-2.5 px-5 rounded-full transition-colors duration-200 shadow-sm hover:shadow-md font-medium">View More</Link>
       </div>
     </section>
   );

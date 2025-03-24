@@ -11,14 +11,18 @@ import ContactForm from '../components/ContactForm'
 import Landing from './Landing'
 import MembershipSignupSection from '../components/MembershipSignupSection'
 import QuickLinksSection from '../components/QuickLinksSection'
+import DonateSection from '../components/DonateCardSection'
+import AboutUsDetailSection from '../components/AboutUsDetailSection'
 
 const Hero = () => {
   return (
     <>
     <Landing/>
     {/* <AdminPanel/> */}
+    {/* <AboutUsDetailSection/> */}
    <QuickLinksSection/>
     <GallerySection/>
+    <DonateSection/>
      <CoursesSection />
      <AboutUsSection />
      <ConnectSection />

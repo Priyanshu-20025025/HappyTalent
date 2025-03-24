@@ -48,12 +48,14 @@ export const addSubUser = async (req, res) => {
 
 export const getSubUser = async (req, res) => {
   try {
+    console.log("s;alfj")
  
     const users = await User.find({}, "-password").sort({ createdAt: -1 }).lean(); // Exclude passwords from response
-
+console.log("users",users)
     if (!users.length) {
       return res.status(404).json({ success: false, message: "No users found" });
     }
+
     res.status(200).json({
       success: true,
       data: users,
