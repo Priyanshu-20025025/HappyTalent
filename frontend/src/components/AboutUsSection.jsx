@@ -1,17 +1,26 @@
-import React from 'react';
-import { Link } from 'react-router';
+import React from "react";
+import { Link } from "react-router";
 
 const AboutUsSection = () => {
   return (
-    <section id="about" className="py-16 bg-orange-100"> {/* Default Tailwind Orange */}
+    <section id="about" className="py-16 bg-orange-100">
+      {" "}
+      {/* Default Tailwind Orange */}
       <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
         <div>
-          <h2 className="text-3xl font-bold text-orange-900 mb-6">About Us</h2> {/* Default Tailwind Orange */}
+          <h2 className="text-3xl font-bold text-orange-900 mb-6">About Us</h2>{" "}
+          {/* Default Tailwind Orange */}
           <p className="text-gray-700 leading-relaxed mb-6">
-            The Happy Talent Foundation is dedicated to empowering students with essential study skills, fostering confidence, and driving academic excellence. We believe every student has unique talents waiting to be unlocked.
+            The Happy Talent Foundation is dedicated to empowering students with
+            essential study skills, fostering confidence, and driving academic
+            excellence. We believe every student has unique talents waiting to
+            be unlocked.
           </p>
           <p className="text-gray-700 leading-relaxed">
-            Through our holistic approach to education, we not only focus on academic skills but also nurture crucial values and emotional intelligence, shaping well-rounded individuals ready to make a positive impact on society.
+            Through our holistic approach to education, we not only focus on
+            academic skills but also nurture crucial values and emotional
+            intelligence, shaping well-rounded individuals ready to make a
+            positive impact on society.
           </p>
         </div>
         <div>
@@ -21,7 +30,11 @@ const AboutUsSection = () => {
             className="rounded-lg shadow-lg"
           />
         </div>
-        <Link to="/about-us" className="bg-orange-500 hover:bg-orange-600 text-white py-2.5 px-5 rounded-full transition-colors duration-200 shadow-sm hover:shadow-md font-medium">View More</Link>
+        <Link to="/about-us">
+          <span className="bg-orange-500 hover:bg-orange-600  text-white py-2.5 px-5 rounded-full transition-colors duration-200 shadow-sm hover:shadow-md font-medium">
+            View More
+          </span>
+        </Link>
       </div>
     </section>
   );

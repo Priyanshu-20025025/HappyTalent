@@ -13,6 +13,7 @@ import UserLayout from "../pages/userLayout";
 import UserList from "../components/admin/UserList";
 import UserLogin from "../components/user/UserLogin";
 import UserProfile from "../components/user/UserProfile";
+import AboutUsDetailSection from "../components/AboutUsDetailSection";
 
 // const router = createBrowserRouter([
 //   {
@@ -58,6 +59,7 @@ const router = createBrowserRouter([
       { index: true, element: <Hero /> },
       { path: "/login", element: <UserLogin /> },
       { path: "/admin-login", element: <AdminLogin /> },
+      {path:"/about-us", element: <AboutUsDetailSection/>},
      
 
       // 🔐 Admin Layout with Sidebar

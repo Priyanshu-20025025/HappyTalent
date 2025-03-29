@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
+import bgImage from "../assets/aboutusSection/bgAboutUs.jpg"
 const AboutUsDetailSection = () => {
   useEffect(() => {
     AOS.init({
@@ -13,7 +13,7 @@ const AboutUsDetailSection = () => {
   return (
     <div className="bg-white text-gray-800 font-sans">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white py-20">
+      <div className="bg-gradient-to-r from-orange-500 md:bg-contain opacity-95 to-orange-600 text-white py-20" style={{ backgroundImage: `url(${bgImage})` }} >
         <div className="container mx-auto px-4" data-aos="fade-up">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">About Happy Talent Foundation</h1>
           <div className="w-24 h-1 bg-white mx-auto mb-8"></div>

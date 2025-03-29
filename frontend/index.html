@@ -5,8 +5,34 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Happy Talent Foundation | NGO </title>
+
+    <!-- Font Awesome CDN (for globe icon) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="your-integrity-hash" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Replace "your-integrity-hash" with the actual integrity hash from Font Awesome if using for production -->
+    <!-- For production, consider hosting Font Awesome files locally or using a more robust method -->
+
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en', // Set your default page language here (assuming English is default)
+          includedLanguages: 'en,hi', // Languages you want to offer for translation (English and Hindi)
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false,
+          multilanguagePage: true,
+          // Remove buttonText if you want to fully rely on the icon, or keep it for fallback text if icon fails to load
+          // buttonText: 'Language'
+        }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <!-- End Google Translate Script -->
+
   </head>
   <body>
+    <!-- Language Translate Dropdown -->
+    <div id="google_translate_element" style=" position: absolute; top: 10px; right: 10px; z-index: 100;" title="Translate this page to another language"></div> <!-- Adjust position and z-index as needed, Added title for accessibility -->
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

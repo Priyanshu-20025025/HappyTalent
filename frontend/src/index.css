@@ -1,1 +1,91 @@
 @import "tailwindcss";
+
+/* --- General Google Translate Element Styling --- */
+
+#google_translate_element {
+  position: absolute;
+  top: 15px;        /* Adjust vertical position as needed */
+  right: 20px;       /* Adjust horizontal position as needed */
+  z-index: 100;      /* Ensure it's above other elements */
+}
+
+.goog-te-gadget {
+  font-family: Arial, sans-serif;
+  font-size: 12px;      /* Reduced font size for dropdown text */
+  color: #555;        /* Default text color */
+}
+
+
+/* --- Style for the "Select Language" Button (goog-te-gadget-simple) --- */
+
+.goog-te-gadget-simple {
+  background-color: rgba(248, 248, 248, 0.85); /* Lighter, slightly transparent background */
+  border: 1px solid rgba(204, 204, 204, 0.7); /* Subtler border */
+  padding: 12px 10px;     /* Adjust padding for vertical/horizontal size */
+  border-radius: 8px;    /* Rounded corners for a softer look */
+  cursor: pointer;
+  outline: none;
+  font-size: 12px;      /* Reduced font size for button text */
+  color: #333;        /* Darker text for better contrast */
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08); /* Subtle box shadow for depth */
+}
+
+.goog-te-gadget-simple:hover {
+  background-color: rgba(230, 230, 230, 0.95); /* Slightly darker on hover */
+  border-color: rgba(153, 153, 153, 0.8); /* Slightly darker border on hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Slightly more prominent shadow on hover */
+}
+
+.goog-te-gadget-simple span {
+  vertical-align: middle; /* Vertically align text and icon (if any) */
+}
+
+.goog-te-gadget-icon {
+  display: none !important; /* Hide the default Google Translate icon (optional, if you don't want it) */
+}
+
+
+/* --- Style for the Dropdown Menu Frame (goog-te-menu-frame) --- */
+/*  Note: Styling the *content* inside the dropdown is very limited and unreliable */
+
+.goog-te-menu-frame {
+  border: 1px solid rgba(204, 204, 204, 0.7) !important; /* Subtler border for the menu frame */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);     /* Softer box shadow for the menu frame */
+  border-radius: 8px !important;                /* Rounded corners for the menu frame */
+  overflow: hidden !important;                    /* Clip rounded corners properly */
+}
+
+
+/* --- OPTIONAL: Icon-Based Button (EXPERIMENTAL and potentially less reliable) --- */
+/*  To use this, uncomment the CSS below and potentially adjust icon font/code */
+/*  Make sure you have an icon font library like Font Awesome included in your project */
+
+
+.goog-te-gadget-simple {
+  position: relative;
+  padding-left: 20px; /* !* Space for the icon *! */
+  text-indent: 100%;   /*!* Hide the text *! */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.goog-te-gadget-simple::before {
+   content: "\f0ac";   /*!* Example: Globe icon from Font Awesome - CHANGE THIS to your desired icon code *! */
+  font-family: "Font Awesome 5 Free"; /* !* Or your icon font family *! */
+  font-weight: 900;   /* !* Adjust font weight if needed *!*/
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 15px;    /* !* Icon size *! */
+  color: #555;      /* !* Icon color *! */
+  display: inline-block;
+}
+
+.goog-te-gadget-simple span {
+  display: none !important; /*!* Hide the default text span (if still visible) *!*/
+}
+
+
+/* --- END OF OPTIONAL ICON STYLES --- */
